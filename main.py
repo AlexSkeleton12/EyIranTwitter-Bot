@@ -1,40 +1,23 @@
-import tweepy
-import praw
-
-from keysnshit import twitterKeys, redditKeys
-
-auth = tweepy.OAuth1UserHandler(
-   twitterKeys["ConsumerKey"], twitterKeys["ConsumerKeySecret"], twitterKeys["AccessKey"], twitterKeys["AccessKeySecret"]
-)
-
-API = tweepy.API(auth)
-
-reddit = praw.Reddit(
-    client_id=redditKeys["PUS"],
-    client_secret=redditKeys["Secret"],
-    password=redditKeys["Password"],
-    user_agent="EyIranTwitter-Bot by u/AlexShadDynasty",
-    username=redditKeys["Username"]
-)
+from eventTriggers import *
 
 print(reddit.user.me())
 
-acc1 = "AlexanderShad4" # Example Twitter Account
+tweet1 = API.user_timeline(screen_name=acc1, count=1)[0]
+tweet2 = API.user_timeline(screen_name=acc2, count=1)[0]
+tweet3 = API.user_timeline(screen_name=acc3, count=1)[0]
+tweet4 = API.user_timeline(screen_name=acc4, count=1)[0]
+tweet5 = API.user_timeline(screen_name=acc5, count=1)[0]
+tweet6 = API.user_timeline(screen_name=acc6, count=1)[0]
+tweet7 = API.user_timeline(screen_name=acc7, count=1)[0]
+tweet8 = API.user_timeline(screen_name=acc8, count=1)[0]
 
-latestTweet1 = API.user_timeline(screen_name=acc1, count=1)[0].text
+latestTweet1 = tweet1
+latestTweet2 = tweet2
+latestTweet3 = tweet3
+latestTweet4 = tweet4
+latestTweet5 = tweet5
+latestTweet6 = tweet6
+latestTweet7 = tweet7
+latestTweet8 = tweet8
 
-def eventSource1(latestTweet1):
-    if latestTweet1 != API.user_timeline(screen_name=acc1, count=1)[0].text:
-
-        # Trigger Reddit Post
-        reddit.subreddit("doggomoggo").submit(selftext="", title=API.user_timeline(screen_name=acc1, count=1)[0].text)
-        print("New Tweet: " + API.user_timeline(screen_name=acc1, count=1)[0].text)
-
-        # Reset Loop
-        latestTweet1 = API.user_timeline(screen_name=acc1, count=1)[0].text
-
-    return latestTweet1
-
-# Event Loop
-while True:
-    latestTweet1 = eventSource1(latestTweet1)
+eventLoop(latestTweet1, latestTweet2, latestTweet3, latestTweet4, latestTweet5, latestTweet6, latestTweet7, latestTweet8, tweet1, tweet2, tweet3, tweet4, tweet5, tweet6, tweet7, tweet8)
