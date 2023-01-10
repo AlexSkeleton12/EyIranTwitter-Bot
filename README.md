@@ -3,11 +3,11 @@ A bot that takes the last tweet of a user and posts it on reddit. Modules used a
 
 # How to use
 
-* Edit main.py and replace placeholders with Reddit and Twitter API keys
+* Edit keysnshit.py and replace placeholders with Reddit and Twitter API keys
+* Edit eventTriggers.py and replace twitter accounts (8) to change posts
 * Run the main.py file
 
-# How to install
-The bot has 2 modules that don't come pre installed with python, to install them do
+# Dependencies
 
 for Twitter API
 ```
@@ -18,6 +18,7 @@ and
 pip3 install praw
 ```
 for reddit API
+
 
 # Disclamer
 This tool is under development and is subject to be broken until further notice...
