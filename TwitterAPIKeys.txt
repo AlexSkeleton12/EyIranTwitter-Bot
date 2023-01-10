@@ -1,7 +1,0 @@
-API Key: 
-API Key Secret: 
-
-Bearer Token: 
-
-Access Token: 
-Access Token Secret: 
